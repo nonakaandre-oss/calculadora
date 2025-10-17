@@ -1,3 +1,25 @@
-function efetuaOperacao(){
-    
+function eftuaOperacao(){
+    let v1 = document.getElementById("v1").value;
+    v1 = parseFloat(v1);
+    let v2 = document.getElementById("v2").value;
+    v2 = parseFloat(v2);
+    let op = document.querySelector("input[name=op]:checked");
+    if (op != null){
+        op = op.value;
+        let result = 0;
+        if (op == '+'){
+            result = v1 + v2;
+        } else if (op == '-'){
+            result = v1 - v2;
+        } else if (op == '*'){
+            result = v1 * v2;
+        } else {
+            result = v1 / v2;
+        }
+        document.getElementById("resultFinal").innerHTML = "Resultado = "+ result;
+    } else {
+        document.getElementById("resultFinal").innerHTML = "Selecione pelo menos uma operação";
+    }
 }
+
+document.getElementById("btnClicar").addEventListener("click",eftuaOperacao);
